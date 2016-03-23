@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Roomate Utility Split Calculator</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="favicon.png">
+ 
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="one-half column" style="margin-top: 10%">
+        <h4>Roomate Rent and Utility Calculator</h4>
+        <p>This calculator is for figuring out how much each roomate owes for rent and utilites. It can be used to only calculate utility cost, or it can be used to calculate rent and utilities.</p>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+    <table class="u-full-width">
+  <tbody> 
+    <tr>
+      <th>People in House</th>
+      <th><input onblur="findTotal()"  type="text" name="ppl" id="ppl"/></th>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Total Rent (optional)</td>
+      <td><input onblur="findTotal()" type="text" name="qty" id="qty42"/></td>
+    </tr>
+    <tr>
+      <td>Gas</td>
+      <td><input onblur="findTotal()" type="text" name="qty" id="qty2"/></td>
+    </tr>
+    <tr>
+      <td>Water</td>
+      <td><input onblur="findTotal()" type="text" name="qty" id="qty2"/></td>
+    </tr>
+    <tr>
+      <td>Garbage</td>
+      <td><input onblur="findTotal()" type="text" name="qty" id="qty2"/></td>
+    </tr>
+  </tbody>
+</table>
+
+<br><br>
+
+Total Utilities: <input type="text" name="total" id="total"/>
+
+
+Cost Per Person: <input type="text" name="total" id="totalPerPerson"/>
+<br></br>
+
+</div>
+
+    <script type="text/javascript">
+function findTotal(){
+    var ppl = parseFloat(document.getElementsByName('ppl')[0].value);
+    var arr = document.getElementsByName('qty');
+    var tot=0;
+    for(var i=0;i<arr.length;i++){
+        if(parseFloat(arr[i].value))
+            tot += parseFloat(arr[i].value);
+    }
+    document.getElementById('total').value = tot;
+    document.getElementById('totalPerPerson').value = tot/ppl;
+}
+
+    </script>
+    
+
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
